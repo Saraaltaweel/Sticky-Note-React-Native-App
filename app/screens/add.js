@@ -11,7 +11,7 @@ function AddNotes({ navigation }) {
     }
     return (
         <>
-            
+
             <IconButton
                 icon="close"
                 size={25}

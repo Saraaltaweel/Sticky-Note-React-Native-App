@@ -67,14 +67,16 @@ const NoteInputModal = ({ visible, onClose, onSubmit, note, isEdit }) => {
             value={desc}
             multiline
             placeholder='Note'
+
             style={[styles.input, styles.desc]}
             onChangeText={text => handleOnChangeText(text, 'desc')}
           />
           <View style={styles.btnContainer}>
             <RoundIconBtn
-              size={15}
+              size={17}
               antIconName='check'
               onPress={handleSubmit}
+
             />
             {title.trim() || desc.trim() ? (
               <RoundIconBtn
@@ -96,25 +98,32 @@ const NoteInputModal = ({ visible, onClose, onSubmit, note, isEdit }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 50,
     paddingTop: 15,
+
+
   },
   input: {
-    borderBottomWidth: 2,
-    borderBottomColor: colors.PRIMARY,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.LINE,
     fontSize: 20,
-    color: colors.DARK,
+    color: 'black',
+    fontWeight: 'bold',
 
   },
   title: {
-    height: 40,
+    borderBottomWidth: 1,
+    height: 55,
+    borderBottomColor: colors.LINE,
     marginBottom: 15,
+    fontSize: 20,
     fontWeight: 'bold',
-    fontFamily:'Shadows Into Light'
+    fontFamily: 'Shadows Into Light',
+    color: 'black',
   },
   desc: {
     height: 100,
-    fontFamily:'Raleway'
+    fontFamily: 'Raleway'
   },
   modalBG: {
     flex: 1,
@@ -124,6 +133,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     paddingVertical: 15,
+
+
   },
 });
 

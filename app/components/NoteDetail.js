@@ -8,6 +8,7 @@ import { useNotes } from '../contexts/NoteProvider';
 import NoteInputModal from './NoteInputModal';
 
 
+
 const formatDate = ms => {
   const date = new Date(ms);
   const day = date.getDate();
@@ -16,31 +17,23 @@ const formatDate = ms => {
   const hrs = date.getHours();
   const min = date.getMinutes();
   const sec = date.getSeconds();
-
-  return `${day}/${month}/${year} - ${hrs}:${min}:${sec}`;
+  return `${day}/${month}/${year} at ${hrs}:${min}:${sec}`;
 };
-
 const NoteDetail = props => {
   const [note, setNote] = useState(props.route.params.note);
   const headerHeight = useHeaderHeight;
   const { setNotes } = useNotes();
   const [showModal, setShowModal] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
-
   const deleteNote = async () => {
     const result = await AsyncStorage.getItem('notes');
     let notes = [];
     if (result !== null) notes = JSON.parse(result);
-
     const newNotes = notes.filter(n => n.id !== note.id);
     setNotes(newNotes);
     await AsyncStorage.setItem('notes', JSON.stringify(newNotes));
     props.navigation.goBack();
   };
-
-
-
-
   const displayDeleteAlert = () => {
     Alert.alert(
       'Are You Sure!',
@@ -60,34 +53,28 @@ const NoteDetail = props => {
       }
     );
   };
-
   const handleUpdate = async (title, desc, time) => {
     const result = await AsyncStorage.getItem('notes');
     let notes = [];
     if (result !== null) notes = JSON.parse(result);
-
     const newNotes = notes.filter(n => {
       if (n.id === note.id) {
         n.title = title;
         n.desc = desc;
         n.isUpdated = true;
         n.time = time;
-
         setNote(n);
       }
       return n;
     });
-
     setNotes(newNotes);
     await AsyncStorage.setItem('notes', JSON.stringify(newNotes));
   };
   const handleOnClose = () => setShowModal(false);
-
   const openEditModal = () => {
     setIsEdit(true);
     setShowModal(true);
   };
-
   return (
     <>
       <ScrollView
@@ -95,8 +82,8 @@ const NoteDetail = props => {
       >
         <Text style={styles.time}>
           {note.isUpdated
-            ? `Updated At ${formatDate(note.time)}`
-            : `Created At ${formatDate(note.time)}`}
+            ? `Updated on ${formatDate(note.time)}`
+            : `Created on ${formatDate(note.time)}`}
         </Text>
         <Text style={styles.title}>{note.title}</Text>
         <Text style={styles.desc}>{note.desc}</Text>
@@ -104,10 +91,10 @@ const NoteDetail = props => {
       <View style={styles.btnContainer}>
         <RoundIconBtn
           antIconName='delete'
-          style={{ backgroundColor: colors.ERROR, marginBottom: 15 }}
+          style={{ backgroundColor: '#BFA2DB', marginBottom: 15 }}
           onPress={displayDeleteAlert}
         />
-        <RoundIconBtn antIconName='edit' onPress={openEditModal} />
+        <RoundIconBtn antIconName='edit' style={{ backgroundColor: '#BFA2DB', marginBottom: 15 }} onPress={openEditModal} />
       </View>
       <NoteInputModal
         isEdit={isEdit}
@@ -119,9 +106,7 @@ const NoteDetail = props => {
     </>
   );
 };
-
 const styles = StyleSheet.create({
-  
   container: {
     flex: 1,
     paddingHorizontal: 15,
@@ -130,16 +115,15 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: colors.PRIMARY,
     fontWeight: 'bold',
-    
   },
   desc: {
     fontSize: 20,
     opacity: 0.6,
-    fontFamily:'Shadows Into Light'
+    fontFamily: 'Shadows Into Light'
   },
   time: {
     textAlign: 'right',
-    fontSize: 12,
+    fontSize: 20,
     opacity: 0.5,
   },
   btnContainer: {
@@ -148,5 +132,4 @@ const styles = StyleSheet.create({
     bottom: 50,
   },
 });
-
 export default NoteDetail;

@@ -24,7 +24,7 @@ const width = Dimensions.get('window').width - 40;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.PRIMARY,
+    backgroundColor: colors.DARK,
     width: width / 2 - 10,
     padding: 8,
     borderRadius: 10,

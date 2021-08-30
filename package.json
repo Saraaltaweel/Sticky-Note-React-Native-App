@@ -8,7 +8,9 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/utils": "^4.11.2",
     "@react-aria/interactions": "^3.5.1",
     "@react-aria/selection": "^3.5.1",
     "@react-aria/ssr": "^3.0.3",
@@ -16,6 +18,7 @@
     "@react-native-aria/tabs": "^0.2.7",
     "@react-native-async-storage/async-storage": "^1.15.7",
     "@react-navigation/core": "^6.0.1",
+    "@react-navigation/native": "^6.0.2",
     "@react-navigation/stack": "^6.0.7",
     "@react-stately/checkbox": "^3.0.3",
     "@react-stately/collections": "^3.3.3",
@@ -33,12 +36,16 @@
     "react-native-aria": "^0.2.3",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-paper": "^4.9.2",
+    "react-native-screens": "^3.6.0",
+    "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.4",
     "react-navigation-drawer": "^2.7.1",
     "react-redux": "^7.2.4",
+    "reactstrap": "^8.9.0",
     "redux-logger": "^3.0.6",
-    "redux-promise-middleware": "^6.1.2"
+    "redux-promise-middleware": "^6.1.2",
+    "styled-listgroup-component": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

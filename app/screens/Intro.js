@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 import RoundIconBtn from '../components/RoundIconBtn';
 import colors from '../misc/colors';
-// import Header from '../components/Header'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const Intro = ({ onFinish }) => {
   const [name, setName] = useState('');
@@ -24,8 +25,8 @@ const Intro = ({ onFinish }) => {
 
   return (
     <>
-    {/* <Header titleText='Note App'/> */}
-    
+      <Header titleText='Note App' />
+
 
       <StatusBar hidden />
       <View style={styles.container}>
@@ -40,6 +41,7 @@ const Intro = ({ onFinish }) => {
           <RoundIconBtn antIconName='arrowright' onPress={handleSubmit} />
         ) : null}
       </View>
+      <Footer />
     </>
   );
 };
@@ -50,11 +52,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#EEEEEE',
   },
   textInput: {
     borderWidth: 2,
     borderColor: colors.PRIMARY,
-    color: colors.PRIMARY,
+    color: 'black',
     width,
     height: 50,
     borderRadius: 10,

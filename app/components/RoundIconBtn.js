@@ -1,9 +1,39 @@
+// import React from 'react';
+// import { View, StyleSheet } from 'react-native';
+// import { AntDesign } from '@expo/vector-icons';
+// import colors from '../misc/colors';
+// import DeleteIcon from '@material-ui/icons/Delete';
+
+// const RoundIconBtn = ({ antIconName, size, color, style, onPress }) => {
+//   return (
+//     <AntDesign
+//       name={antIconName}
+//       size={size || 24}
+//       color={color || colors.LIGHT}
+//       style={[styles.icon, { ...style }]}
+//       onPress={onPress}
+//     />
+
+
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   icon: {
+//     backgroundColor: colors.PRIMARY,
+//     padding: 15,
+//     borderRadius: 50,
+//     elevation: 5,
+//   },
+// });
+
+// export default RoundIconBtn;
+
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import colors from '../misc/colors';
 import DeleteIcon from '@material-ui/icons/Delete';
-
 const RoundIconBtn = ({ antIconName, size, color, style, onPress }) => {
   return (
     <AntDesign
@@ -13,11 +43,8 @@ const RoundIconBtn = ({ antIconName, size, color, style, onPress }) => {
       style={[styles.icon, { ...style }]}
       onPress={onPress}
     />
-
-
   );
 };
-
 const styles = StyleSheet.create({
   icon: {
     backgroundColor: colors.PRIMARY,
@@ -26,5 +53,4 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
 });
-
 export default RoundIconBtn;
